@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.loginBtn.setOnClickListener{
-            val mail = binding.loginEmail.text.toString().trim { it <= ' ' }
+            val mail = binding.loginEmail.text.toString().trim()
             val password = binding.loginPassword.text.toString()
             if (mail.isEmpty() || password.isEmpty()) {
                 Toast.makeText(applicationContext, "All fields are required", Toast.LENGTH_SHORT)
