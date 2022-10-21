@@ -19,13 +19,14 @@ class SignUp : AppCompatActivity() {
 
         binding=DataBindingUtil.setContentView(this,R.layout.activity_sign_up)
         firebaseAuth = FirebaseAuth.getInstance()
-        binding.loginpage.setOnClickListener {
+        binding.goToLogin.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
+            finish()
         }
-        binding.signupbutton.setOnClickListener{
-            val mail = binding.signupEmail.getText().toString().trim()
-            val password = binding.signupPassword.getText().toString().trim()
+        binding.signUpButton.setOnClickListener{
+            val mail = binding.signUpEmail.getText().toString().trim()
+            val password = binding.signUpPassword.getText().toString().trim()
             if (mail.isEmpty() || password.isEmpty()) {
                 Toast.makeText(applicationContext, "All fields are required", Toast.LENGTH_SHORT)
                     .show()

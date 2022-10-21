@@ -7,85 +7,100 @@
 
     </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".MainActivity">
+        android:background="@drawable/signin_bg">
 
-        <TextView
+        <RelativeLayout
+            android:id="@+id/centerLine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="HealthyFy"
-            android:fontFamily="cursive"
-            android:layout_marginTop="50dp"
-            android:textStyle="bold"
-            android:textColor="#FFBD4D"
-            android:textSize="46sp"
-            android:gravity="center_horizontal" />
+            android:layout_centerInParent="true">
 
-
-        <TextView
+        </RelativeLayout>
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="New User!"
-            android:layout_marginLeft="20dp"
-            android:textColor="#FFBD4D"
-            android:textSize="40sp" />
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            android:layout_above="@+id/centerLine"
+            android:id="@+id/email">
 
-        <TextView
+            <EditText
+                android:layout_margin="20dp"
+                android:id="@+id/signUpEmail"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:hint="Email Id"
+                android:paddingLeft="20dp"
+                android:textStyle="bold"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/custom_input"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sign up"
-            android:layout_marginLeft="20dp"
-            android:textColor="#FFBD4D"
-            android:textSize="19sp" />
+            android:id="@+id/password"
+            app:boxStrokeColor="@null"
+            android:layout_below="@+id/centerLine"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:passwordToggleEnabled="true">
 
-        <EditText
-            android:layout_margin="20dp"
-            android:id="@+id/signupEmail"
+            <EditText
+                android:id="@+id/signUpPassword"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="20dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/custom_input"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:paddingLeft="20dp"
+                android:textStyle="bold" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/signUpButton"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:ems="10"
-            android:hint="Email Id"
-            android:paddingLeft="20dp"
-            android:textStyle="bold"
-            android:layout_marginTop="30dp"
-            android:background="#D3D3D3"
-            android:inputType="textEmailAddress" />
-
-        <EditText
-            android:layout_margin="20dp"
-            android:id="@+id/signupPassword"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:ems="10"
-            android:hint="Password"
-            android:paddingLeft="20dp"
-            android:textStyle="bold"
-            android:layout_marginTop="30dp"
-            android:background="#D3D3D3"
-            android:inputType="textPassword" />
-
-        <Button
-            android:id="@+id/signupbutton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
+            android:layout_below="@+id/password"
+            android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
-            android:text="Sign up"
-            android:layout_marginTop="30dp" />
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            app:cardBackgroundColor="@color/lightOrange"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="SIGN UP"
+                android:textColor="@color/AppTheme"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
 
         <TextView
-            android:textColor="#0096FF"
-            android:id="@+id/loginpage"
-            android:layout_width="wrap_content"
+            android:id="@+id/goToLogin"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:layout_marginTop="70dp"
-            android:text="Want to Log in?" />
-
-    </LinearLayout>
+            android:layout_below="@+id/signUpButton"
+            android:layout_marginTop="95dp"
+            android:text="LOG IN?"
+            android:textAlignment="center"
+            android:textColor="@color/AppTheme"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
 </layout>

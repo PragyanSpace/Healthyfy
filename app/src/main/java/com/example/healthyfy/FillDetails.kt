@@ -54,12 +54,11 @@ class FillDetails : AppCompatActivity() {
 //                applicationContext, "Enter vaild date.", Toast.LENGTH_SHORT
 //            ).show() else binding.createDob.setText(date)
 //        }
-        binding.create.setOnClickListener{
-            val blood = binding.createBlood.getText().toString().trim()
-            val Dob = binding.createDob.getText().toString().trim()
-            val preD = binding.createPreDi.getText().toString().trim()
-            val contact = binding.createNumber.getText().toString().trim()
-            val name=binding.createName.text.toString().trim()
+        binding.fillDetailsSubmitBtn.setOnClickListener{
+            val blood = binding.bloodGroupInput.getText().toString().trim()
+            val Dob = binding.dateOfbirthInput.getText().toString().trim()
+            val preD = binding.pastDiseaseInput.getText().toString().trim()
+            val contact = binding.phoneNumberInput.getText().toString().trim()
             val id = UUID.randomUUID().toString()
             if (blood.isEmpty() || Dob.isEmpty() || preD.isEmpty() || contact.isEmpty())
                 Toast.makeText(applicationContext, "All fields are required", Toast.LENGTH_SHORT).show()
@@ -72,7 +71,6 @@ class FillDetails : AppCompatActivity() {
                 record["Dob"] = Dob
                 record["preD"] = preD
                 record["contact"] = contact
-                record["name"]=name
                 GlobalScope.launch(Dispatchers.IO)
                 {
                     documentReference.set(record).addOnSuccessListener {
