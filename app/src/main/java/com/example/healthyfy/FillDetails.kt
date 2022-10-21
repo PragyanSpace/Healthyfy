@@ -38,27 +38,27 @@ class FillDetails : AppCompatActivity() {
         val year = calendar.get(Calendar.YEAR)
         val month = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)
-        binding.createDob.setOnClickListener{
-            val datePickerDialog = DatePickerDialog(
-                this,
-                R.style.Theme_Holo_Dialog_MinWidth,
-                listener,
-                year,
-                month,
-                day
-            )
-            datePickerDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-            datePickerDialog.show()
-        }
-        listener = OnDateSetListener { view, year, month, dayOfMonth ->
-            var month = month
-            month = month + 1
-            val date = "$dayOfMonth-$month-$year"
-            val today = LocalDate.now()
-            if (today.year < year || today.monthValue < month || today.dayOfMonth < dayOfMonth) Toast.makeText(
-                applicationContext, "Enter vaild date.", Toast.LENGTH_SHORT
-            ).show() else binding.createDob.setText(date)
-        }
+//        binding.createDob.setOnClickListener{
+//            val datePickerDialog = DatePickerDialog(
+//                this,
+//                R.style.Theme_Holo_Dialog_MinWidth,
+//                listener,
+//                year,
+//                month,
+//                day
+//            )
+//            datePickerDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+//            datePickerDialog.show()
+//        }
+//        listener = OnDateSetListener { view, year, month, dayOfMonth ->
+//            var month = month
+//            month = month + 1
+//            val date = "$dayOfMonth-$month-$year"
+//            val today = LocalDate.now()
+//            if (today.year < year || today.monthValue < month || today.dayOfMonth < dayOfMonth) Toast.makeText(
+//                applicationContext, "Enter vaild date.", Toast.LENGTH_SHORT
+//            ).show() else binding.createDob.setText(date)
+//        }
         binding.createDob.setOnClickListener(View.OnClickListener {
             val Tag = binding.createTag.getText().toString().trim()
             val Dob = binding.createDob.getText().toString().trim()
