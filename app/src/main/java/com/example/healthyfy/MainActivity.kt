@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding=DataBindingUtil.setContentView(this,R.layout.activity_main)
         firebaseAuth = FirebaseAuth.getInstance()
-        val firebaseUser= firebaseAuth.getCurrentUser()
+        val firebaseUser= firebaseAuth.currentUser
         if (firebaseUser != null) {
             finish()
             startActivity(Intent(this@MainActivity, Homepage::class.java))
@@ -26,12 +26,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.forgotpassword.setOnClickListener{
-//            val intent = Intent(this@MainActivity,ForgotPassword::class.java)
-//            startActivity(intent)
+            val intent = Intent(this@MainActivity,ForgotPassword::class.java)
+            startActivity(intent)
         }
         binding.loginBtn.setOnClickListener{
-            val mail = binding.loginEmail.getText().toString().trim { it <= ' ' }
-            val password = binding.loginPassword.getText().toString()
+            val mail = binding.loginEmail.text.toString().trim { it <= ' ' }
+            val password = binding.loginPassword.text.toString()
             if (mail.isEmpty() || password.isEmpty()) {
                 Toast.makeText(applicationContext, "All fields are required", Toast.LENGTH_SHORT)
                     .show()
@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkMailVerification() {
-        val firebaseUser= firebaseAuth.getCurrentUser()
+        val firebaseUser= firebaseAuth.currentUser
         if (firebaseUser != null) {
             if (firebaseUser.isEmailVerified) {
                 Toast.makeText(applicationContext, "Logged in", Toast.LENGTH_SHORT).show()
