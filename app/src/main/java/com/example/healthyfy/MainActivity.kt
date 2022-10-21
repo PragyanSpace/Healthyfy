@@ -7,15 +7,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.healthyfy.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding:ActivityMainBinding
     lateinit var firebaseAuth: FirebaseAuth
+    lateinit var firestore: FirebaseFirestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=DataBindingUtil.setContentView(this,R.layout.activity_main)
         firebaseAuth = FirebaseAuth.getInstance()
+        firestore=FirebaseFirestore.getInstance()
         val firebaseUser= firebaseAuth.currentUser
         if (firebaseUser != null) {
             finish()
@@ -54,11 +57,17 @@ class MainActivity : AppCompatActivity() {
 
     private fun checkMailVerification() {
         val firebaseUser= firebaseAuth.currentUser
+        val documentReference = firestore!!.collection("Patients").document(firebaseUser!!.uid)
         if (firebaseUser != null) {
             if (firebaseUser.isEmailVerified) {
                 Toast.makeText(applicationContext, "Logged in", Toast.LENGTH_SHORT).show()
                 finish()
-                startActivity(Intent(this@MainActivity, Homepage::class.java))
+                documentReference.addSnapshotListener { snapshot, e ->
+                    if (snapshot != null && snapshot.exists())
+                        startActivity(Intent(this@MainActivity, Homepage::class.java))
+                    else
+                        startActivity(Intent(this@MainActivity, FillDetails::class.java))
+                }
             } else {
                 Toast.makeText(applicationContext, "verify your mail first.", Toast.LENGTH_SHORT).show()
                 firebaseAuth.signOut()

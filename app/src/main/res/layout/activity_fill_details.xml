@@ -40,7 +40,7 @@
                 android:layout_weight="0.5"
                 android:hint="Enter blood group"
                 android:paddingStart="10dp"
-                android:id="@+id/createTag" />
+                android:id="@+id/createBlood" />
         </LinearLayout>
 
         <LinearLayout
@@ -61,16 +61,15 @@
                 android:textSize="28sp"
                 android:textStyle="bold" />
 
-            <TextView
+            <EditText
                 android:textColor="@color/black"
-                android:id="@+id/createDob"
                 android:layout_width="185dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="17dp"
+                android:layout_marginTop="30dp"
                 android:layout_weight="0.5"
+                android:hint="Enter number"
                 android:paddingStart="10dp"
-                android:hint="Enter date Of Birth"
-                android:textSize="16sp" />
+                android:id="@+id/createDob" />
         </LinearLayout>
 
         <LinearLayout
@@ -99,7 +98,7 @@
                 android:layout_weight="0.5"
                 android:hint="Enter number"
                 android:paddingStart="10dp"
-                android:id="@+id/createOrigin" />
+                android:id="@+id/createNumber" />
         </LinearLayout>
 
         <LinearLayout
@@ -121,7 +120,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/createBirthPlace"
+                android:id="@+id/createPreDi"
                 android:layout_width="185dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="30dp"
@@ -142,6 +141,7 @@
             android:textStyle="bold" />
 
         <Button
+            android:id="@+id/create"
             android:layout_width="200dp"
             android:layout_height="70dp"
             android:text="submit"
