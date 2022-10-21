@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "132019504709",
+    "project_id": "healthyfy-f20cb",
+    "storage_bucket": "healthyfy-f20cb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:132019504709:android:a5ea825e93f3c7de9e452c",
+        "android_client_info": {
+          "package_name": "com.example.healthyfy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "132019504709-23jqeoia6sbvm6sgi34ouek4fnukm516.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVI6lPTHVpmHFHgNi9466M0HrHuK4nQIQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "132019504709-23jqeoia6sbvm6sgi34ouek4fnukm516.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
