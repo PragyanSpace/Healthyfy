@@ -1,7 +1,9 @@
 package com.example.healthyfy
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.healthyfy.databinding.ActivityForgotPasswordBinding
@@ -12,6 +14,7 @@ class ForgotPassword : AppCompatActivity() {
     lateinit var firebaseAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_forgot_password)
         supportActionBar!!.hide()
         firebaseAuth = FirebaseAuth.getInstance()

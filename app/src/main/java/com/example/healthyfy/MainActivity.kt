@@ -1,7 +1,9 @@
 package com.example.healthyfy
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -16,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var firestore: FirebaseFirestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding=DataBindingUtil.setContentView(this,R.layout.activity_main)
         firebaseAuth = FirebaseAuth.getInstance()
         firestore=FirebaseFirestore.getInstance()
