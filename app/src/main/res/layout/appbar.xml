@@ -13,15 +13,8 @@
         android:textColor="@color/white"
         android:text="@string/healthyfy"/>
 
-<ImageView
-    android:layout_width="50dp"
-    android:layout_height="50dp"
-    android:src="@drawable/mia"
-      android:layout_gravity="end"
-    android:layout_marginEnd="15dp"
-    android:id="@+id/profileForAppBar"
-    />
     <TextView
+        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Name"
