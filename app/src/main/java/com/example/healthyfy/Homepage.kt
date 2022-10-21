@@ -1,7 +1,9 @@
 package com.example.healthyfy
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.healthyfy.databinding.ActivityHomepageBinding
@@ -10,6 +12,7 @@ class Homepage : AppCompatActivity() {
     private lateinit var binding: ActivityHomepageBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding= DataBindingUtil.setContentView(this,R.layout.activity_homepage)
         replaceFragment(HomeFragment())
         binding.bottomNav.setOnItemSelectedListener {
