@@ -61,13 +61,13 @@ class MainActivity : AppCompatActivity() {
         if (firebaseUser != null) {
             if (firebaseUser.isEmailVerified) {
                 Toast.makeText(applicationContext, "Logged in", Toast.LENGTH_SHORT).show()
-                finish()
                 documentReference.addSnapshotListener { snapshot, e ->
                     if (snapshot != null && snapshot.exists())
                         startActivity(Intent(this@MainActivity, Homepage::class.java))
                     else
                         startActivity(Intent(this@MainActivity, FillDetails::class.java))
                 }
+                finish()
             } else {
                 Toast.makeText(applicationContext, "verify your mail first.", Toast.LENGTH_SHORT).show()
                 firebaseAuth.signOut()
