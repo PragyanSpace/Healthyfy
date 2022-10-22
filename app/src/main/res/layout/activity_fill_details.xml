@@ -184,6 +184,7 @@
                         android:background="@drawable/custom_input2"
                         android:ems="10"
                         android:paddingLeft="20dp"
+                        android:inputType="number"
                         android:textStyle="bold" />
                 </com.google.android.material.textfield.TextInputLayout>
                 <TextView

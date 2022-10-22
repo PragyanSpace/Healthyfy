@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.healthyfy.databinding.FragmentProfileBinding
+import com.example.healthyfy.databinding.FragmentSearchBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
@@ -20,8 +21,8 @@ class SearchFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding: FragmentProfileBinding = DataBindingUtil.inflate(inflater,
-            R.layout.fragment_profile, container, false)
+        val binding: FragmentSearchBinding = DataBindingUtil.inflate(inflater,
+            R.layout.fragment_search, container, false)
         // Inflate the layout for this fragment
 //        val view:View = inflater.inflate(R.layout.fragment_profile, container, false)
         firebaseAuth= FirebaseAuth.getInstance()
