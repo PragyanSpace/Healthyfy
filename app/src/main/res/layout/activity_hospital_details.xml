@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".HospitalDetails"
+        android:background="@drawable/login_bg">
+    <ImageView
+        android:id="@+id/hospitalImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/hospital_img"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+        <TextView
+            android:id="@+id/hospitalNameText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hospital Name"
+            app:layout_constraintTop_toBottomOf="@+id/hospitalImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textStyle="bold"
+            android:textSize="27sp"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:layout_marginTop="15dp"/>
+        <LinearLayout
+            android:id="@+id/linearLayoutForLocation"
+            app:layout_constraintTop_toBottomOf="@id/hospitalNameText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginStart="10dp"
+                android:text="Location:"
+                android:textSize="22sp"
+                android:textColor="@color/black" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="Delhi"
+                android:layout_marginStart="10dp"
+                android:textSize="22sp"
+                android:textColor="@color/black" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayoutForContactNo"
+            app:layout_constraintTop_toBottomOf="@id/linearLayoutForLocation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginStart="10dp"
+                android:text="Contact Number:"
+                android:textSize="22sp"
+                android:textColor="@color/black" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="9678375545"
+                android:layout_marginStart="10dp"
+                android:textSize="22sp"
+                android:textColor="@color/black" />
+        </LinearLayout>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/makeAppoinmentBtn"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutForContactNo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            app:cardBackgroundColor="@color/AppTheme"
+            app:cardElevation="10dp"
+            app:cardCornerRadius="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="MAKE APPOINMENT"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
