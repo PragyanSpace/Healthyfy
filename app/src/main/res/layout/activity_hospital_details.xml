@@ -4,7 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="hname"
+            type="String" />
+        <variable
+            name="hloc"
+            type="String" />
+        <variable
+            name="hnum"
+            type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,7 +33,7 @@
             android:id="@+id/hospitalNameText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hospital Name"
+            android:text="@{hname}"
             app:layout_constraintTop_toBottomOf="@+id/hospitalImage"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -53,7 +61,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
-                android:text="Delhi"
+                android:text="@{hloc}"
                 android:layout_marginStart="10dp"
                 android:textSize="22sp"
                 android:textColor="@color/black" />
@@ -77,7 +85,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
-                android:text="9678375545"
+                android:text="@{hnum}"
                 android:layout_marginStart="10dp"
                 android:textSize="22sp"
                 android:textColor="@color/black" />

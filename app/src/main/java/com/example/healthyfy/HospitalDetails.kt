@@ -1,5 +1,6 @@
 package com.example.healthyfy
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -18,17 +19,26 @@ class HospitalDetails : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
     private lateinit var firebaseUser: FirebaseUser
+    private lateinit var data:HData
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= DataBindingUtil.setContentView(this,R.layout.activity_hospital_details)
         firebaseAuth=FirebaseAuth.getInstance()
         firebaseUser = firebaseAuth.currentUser!!
         firestore = FirebaseFirestore.getInstance()
-        val hospitalId = "Ggga7zstmeYJh6RFBlzvF1H8MHh1"
+        if(intent.extras!=null)
+        {
+            data= intent.extras!!.getParcelable<HData>("hos_details")!!
+        }
+        val hospitalId = data.id
+
+        binding.hname=data.hname
+        binding.hloc=data.hloc
+        binding.hnum=data.hnum
 
         binding.makeAppoinmentBtn.setOnClickListener{
             val aptId= UUID.randomUUID().toString().trim()
-            val documentReference = firestore!!.collection("Managements").document(hospitalId).collection("appoinments").document(aptId)
+            val documentReference = firestore!!.collection("Managements").document(hospitalId.toString()).collection("appoinments").document(aptId)
             val aptRecord: MutableMap<String, Any> = HashMap()
             aptRecord["pat_id"] = firebaseUser!!.uid
             aptRecord["status"] = 0
