@@ -59,9 +59,8 @@ class SearchFragment : Fragment() {
         binding.recView.adapter=adapter
         adapter.setOnItemClickListener(object: MyAdapter.onItemClickListener {
             override fun onItemClicked(position: Int) {
-                Toast.makeText(activity,"Clicked",Toast.LENGTH_SHORT).show()
                 val intent =Intent(activity, HospitalDetails::class.java)
-                intent.putExtra("model_name",hos[position].id)
+                intent.putExtra("hos_details",hos[position])
                 startActivity(intent)
             }
         })
