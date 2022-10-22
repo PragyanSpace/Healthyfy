@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Medications"
+        android:text="Past Medications"
         android:textSize="30sp"
         android:layout_gravity="center"/>
 

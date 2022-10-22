@@ -2,6 +2,7 @@ package com.example.healthyfy
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -56,7 +57,6 @@ class SearchFragment : Fragment() {
         binding.recView.layoutManager= LinearLayoutManager(activity)
         val adapter= MyAdapter(hos)
         binding.recView.adapter=adapter
-
         adapter.setOnItemClickListener(object: MyAdapter.onItemClickListener {
             override fun onItemClicked(position: Int) {
                 Toast.makeText(activity,"Clicked",Toast.LENGTH_SHORT).show()
