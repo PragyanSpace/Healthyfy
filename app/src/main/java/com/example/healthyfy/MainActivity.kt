@@ -8,6 +8,10 @@ import androidx.databinding.DataBindingUtil
 import com.example.healthyfy.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -58,21 +62,23 @@ class MainActivity : AppCompatActivity() {
 
     private fun checkMailVerification() {
         val firebaseUser= firebaseAuth.currentUser
-        val documentReference = firestore!!.collection("Patients").document(firebaseUser!!.uid)
-        if (firebaseUser != null) {
-            if (firebaseUser.isEmailVerified) {
-                Toast.makeText(applicationContext, "Logged in", Toast.LENGTH_SHORT).show()
-                documentReference.addSnapshotListener { snapshot, e ->
-                    if (snapshot != null && snapshot.exists())
-                        startActivity(Intent(this@MainActivity, Homepage::class.java))
-                    else
-                        startActivity(Intent(this@MainActivity, FillDetails::class.java))
+            val documentReference = firestore!!.collection("Patients").document(firebaseUser!!.uid)
+            if (firebaseUser != null) {
+                if (firebaseUser.isEmailVerified) {
+                    Toast.makeText(applicationContext, "Logged in", Toast.LENGTH_SHORT).show()
+                    GlobalScope.launch(Dispatchers.IO) {
+                        documentReference.addSnapshotListener { snapshot, e ->
+                            if (snapshot != null && snapshot.exists())
+                                startActivity(Intent(this@MainActivity, Homepage::class.java))
+                            else
+                                startActivity(Intent(this@MainActivity, FillDetails::class.java))
+                        }
+                    }
+                    finish()
+                } else {
+                    Toast.makeText(applicationContext, "verify your mail first.", Toast.LENGTH_SHORT).show()
+                    firebaseAuth.signOut()
                 }
-                finish()
-            } else {
-                Toast.makeText(applicationContext, "verify your mail first.", Toast.LENGTH_SHORT).show()
-                firebaseAuth.signOut()
             }
         }
     }
-}
