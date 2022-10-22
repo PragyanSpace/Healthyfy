@@ -59,6 +59,7 @@ class FillDetails : AppCompatActivity() {
             val Dob = binding.dateOfbirthInput.getText().toString().trim()
             val preD = binding.pastDiseaseInput.getText().toString().trim()
             val contact = binding.phoneNumberInput.getText().toString().trim()
+            val name = binding.nameInput.text.toString().trim()
             val id = UUID.randomUUID().toString()
             if (blood.isEmpty() || Dob.isEmpty() || preD.isEmpty() || contact.isEmpty())
                 Toast.makeText(applicationContext, "All fields are required", Toast.LENGTH_SHORT).show()
@@ -71,6 +72,7 @@ class FillDetails : AppCompatActivity() {
                 record["Dob"] = Dob
                 record["preD"] = preD
                 record["contact"] = contact
+                record["name"] = name
                 GlobalScope.launch(Dispatchers.IO)
                 {
                     documentReference.set(record).addOnSuccessListener {
